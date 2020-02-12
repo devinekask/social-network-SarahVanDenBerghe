@@ -1,0 +1,133 @@
+@import './css/reset.css';
+@import './css/vars.css';
+
+html {
+  box-sizing: border-box;
+}
+
+/* stylelint-disable */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* stylelint-enable */
+
+body {
+  height: 100vh;
+  font-size: 1;
+  line-height: 1.5;
+  background-color: var(--darkBlue);
+
+  /* nog fontface */
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.post {
+  max-width: 20rem;
+  background: white;
+  border-radius: 1.25rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 20rem;
+    width: 100%;
+    background-image: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 50%);
+    border-radius: 1.25rem 1.25rem 0 0;
+    top: 0;
+    left: 0;
+  }
+
+  & .post__like {
+    background-color: white;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    border-radius: 50%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  & .post__like--false {
+    background-image: url(../src/assets/img/heart--notliked.svg);
+  }
+
+  & .wrapper {
+    padding: 1.8rem;
+    margin-top: -6rem;
+  }
+
+  & .post__img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1.25rem 1.25rem 0 0;
+  }
+
+  & header {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  & header::before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: var(--red);
+    transform: translateX(-1rem);
+  }
+
+  & .post__title {
+    font-family: 'Essonnes', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+
+  & .post__user {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    opacity: .6;
+    margin-bottom: 1.8rem;
+  }
+
+  & .post__description {
+    padding-bottom: 1.5rem;
+  }
+
+  & .post__tags {
+    display: flex;
+    flex-wrap: wrap;
+    letter-spacing: .05rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    color: #c7214e;
+    transform: translateX(-.3rem);
+
+    & .tag {
+      background-color: #fbe1e3;
+      margin: .3rem;
+      border-radius: 5px;
+      padding: .3rem .5rem;
+    }
+  }
+}
