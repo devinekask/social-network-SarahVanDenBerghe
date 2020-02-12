@@ -1,6 +1,6 @@
 # Foodgram
 ## Concept
-Via Foodgram is een social media network voor echte foodies. Of je nu je eigen culinaire creatie wilt delen, jouw gerecht op restaurant ten toon wilt stellen of gewoon inspiratie wilt opdoen, dit kan allemaal!
+Foodgram is een social media network voor echte foodies. Of je nu je eigen culinaire creatie wilt delen, jouw gerecht op restaurant ten toon wilt stellen of gewoon inspiratie wilt opdoen, dit kan allemaal!
 De Foodgram-feed geeft de laatste posts weer van gebruikers waar je allerlei gerechten kunt bewonderen.
 
 ## Model
