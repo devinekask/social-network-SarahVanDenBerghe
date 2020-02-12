@@ -32,7 +32,12 @@ body {
   display: none;
 }
 
+.posts {
+  display: flex;
+}
+
 .post {
+  margin: 1rem;
   max-width: 20rem;
   background: white;
   border-radius: 1.25rem;

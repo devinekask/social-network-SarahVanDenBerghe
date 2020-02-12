@@ -9,6 +9,10 @@ class Post {
     this.liked = liked;
   }
 
+  toggleLike() {
+    this.liked = true;
+    console.log('clicked');
+  }
 }
 
 export default Post;
