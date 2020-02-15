@@ -9,13 +9,13 @@ const renderPosts = store => {
   $postList.innerHTML = '';
   store.posts.forEach(post => {
     $postList.appendChild(createPost(post, store));
-  })
+  });
 };
 
 const createPost = (post, store) => {
-  console.log(post.tags)
+  console.log(post.tags);
   const $li = document.createElement('li');
-  $li.classList.add('post')
+  $li.classList.add('post');
   $li.innerHTML =
     `<button class="post__like post__like--false"><span class="hidden">Vind ik leuk</span></span></button>
     <img class="post__img" src="${post.picture}" alt="${post.title}">
@@ -25,13 +25,10 @@ const createPost = (post, store) => {
         <p class="post__user">${post.user}</p>
       </header>
       <p class="post__description">${post.description}</p>
-      <ul class="post__tags">` +
-        post.tags.map(tag => {
-          return `<li class="tag">${tag}</li>`
-        }).join('')
-      + `</ul>
+      <ul class="post__tags">
+        ${post.tags.map(tag => { return `<li class="tag">${tag}</li>`;}).join('')}
+      </ul>
     </div>`;
-
   $li.addEventListener('click', () => toggleLike(post, store));
   return $li;
 };
