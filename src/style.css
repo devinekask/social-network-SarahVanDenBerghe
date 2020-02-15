@@ -15,7 +15,7 @@ html {
 
 body {
   height: 100vh;
-  font-size: 1;
+  font-size: .88rem;
   line-height: 1.5;
   background-color: var(--darkBlue);
 
@@ -38,7 +38,7 @@ body {
 
 .post {
   margin: 1rem;
-  max-width: 20rem;
+  max-width: 23rem;
   background: white;
   border-radius: 1.25rem;
   position: relative;
@@ -75,7 +75,7 @@ body {
     background-image: url(../src/assets/img/heart--notliked.svg);
   }
 
-  & .wrapper {
+  & .post__info {
     padding: 1.8rem;
     margin-top: -6rem;
   }
@@ -117,6 +117,8 @@ body {
 
   & .post__description {
     padding-bottom: 1.5rem;
+    line-height: 1.75;
+    letter-spacing: .05rem;
   }
 
   & .post__tags {

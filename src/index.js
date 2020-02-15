@@ -19,7 +19,7 @@ const createPost = (post, store) => {
   $li.innerHTML =
     `<button class="post__like post__like--false"><span class="hidden">Vind ik leuk</span></span></button>
     <img class="post__img" src="${post.picture}" alt="${post.title}">
-    <div class="wrapper">
+    <div class="post__info">
       <header>
         <h3 class="post__title">${post.title}</h3>
         <p class="post__user">${post.user}</p>
