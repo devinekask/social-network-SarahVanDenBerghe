@@ -31,8 +31,5 @@ test('add a post', () => {
     tags: ['Vegetarisch', 'Avondeten', 'Gezond']
   });
   expect(store.posts.length).toBe(1);
-  expect(store.posts[0].picture).toContain('.jpg' || '.jpeg' || '.png' || '.webp');
-  expect(store.posts[0].user).toBeDefined();
-  expect(store.posts[0].description).toBeDefined();
-  expect(store.posts[0].tags.length).toBeGreaterThan(0);
+  expect(store.posts[0].liked).toBeFalsy();
 });
