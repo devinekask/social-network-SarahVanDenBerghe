@@ -1,5 +1,5 @@
+import {decorate, observable, action} from 'mobx';
 class Post {
-
   constructor({picture, title, user, description, tags, liked = false}) {
     this.picture = picture;
     this.title = title;
@@ -10,16 +10,16 @@ class Post {
     this.comments = [];
   }
 
-  toggleLike() {
-    this.liked = true;
-    console.log('clicked');
+  toggleLike(value) {
+    this.liked = value;
   }
 
   addComment(user, comment) {
     this.comments.push({user: user, comment: comment});
   }
 
-  createHTML() {
+  // Niet finaal, al gemaakt voor volgende fases
+  createPost() {
     return `<button class="post__like"><span class="hidden">Vind ik leuk</span></span></button>
     <img class="post__img" src="${this.picture}" alt="${this.title}">
     <div class="post__info">
@@ -29,19 +29,11 @@ class Post {
       </header>
       <p class="post__description">${this.description}</p>
       <ul class="post__tags">
-        ${this.tags
-    .map(tag => {
-      return `<li class="tag">${tag}</li>`;
-    })
-    .join('')}
+        ${this.tags.map(tag => { return `<li class="tag">${tag}</li>`;}).join('')}
       </ul>
     </div>
     <ul class="post__comments">
-      ${this.comments
-    .map(comment => {
-      return `<li class="comment"><span class="comment__user">${comment.user}:</span> ${comment.comment}</li>`;
-    })
-    .join('')}
+      ${this.comments.map(comment => { return `<li class="comment"><span class="comment__user">${comment.user}:</span> ${comment.comment}</li>`;}).join('')}
     </ul>
     <form class="form">
       <div class="wrapper">
@@ -52,5 +44,13 @@ class Post {
     </form>`;
   }
 }
+
+decorate(Post, {
+  liked: observable,
+  comments: observable,
+  addComment: action,
+  toggleLike: action,
+  createPost: action
+});
 
 export default Post;

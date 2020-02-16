@@ -35,6 +35,8 @@ body {
 
 .posts {
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .post__like--false .post__like {
@@ -112,7 +114,7 @@ body {
   }
 
   & .post__title {
-    font-family: 'Essonnes', serif;
+    font-family: Essonnes, serif;
     font-weight: 400;
     font-size: 1.6rem;
   }
