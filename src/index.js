@@ -2,8 +2,6 @@ import './style.css';
 import Store from './js/Store';
 import Post from './js/Post';
 
-
-
 const renderPosts = store => {
   const $postList = document.querySelector('.posts');
   $postList.innerHTML = '';
@@ -13,36 +11,26 @@ const renderPosts = store => {
 };
 
 const createPost = (post, store) => {
-  console.log(post.tags);
   const $li = document.createElement('li');
-  $li.classList.add('post');
-  $li.innerHTML =
-    `<button class="post__like post__like--false"><span class="hidden">Vind ik leuk</span></span></button>
-    <img class="post__img" src="${post.picture}" alt="${post.title}">
-    <div class="post__info">
-      <header>
-        <h3 class="post__title">${post.title}</h3>
-        <p class="post__user">${post.user}</p>
-      </header>
-      <p class="post__description">${post.description}</p>
-      <ul class="post__tags">
-        ${post.tags.map(tag => { return `<li class="tag">${tag}</li>`;}).join('')}
-      </ul>
-    </div>`;
-  $li.addEventListener('click', () => toggleLike(post, store));
+  $li.classList.add(
+    'post',
+    post.liked ? 'post__like--true' : 'post__like--false'
+  );
+
+  $li.innerHTML = post.createHTML();
+  $li.querySelector('.post__like').addEventListener('click', () => toggleLike(post, store));
   return $li;
 };
 
 const toggleLike = (post, store) => {
   post.toggleLike();
+  renderPosts(store);
 };
-
-
 
 const init = () => {
   const store = new Store();
 
-  // Seed
+  // Seed post
   store.posts.push(new Post({
     picture: '../src/assets/img/IMG_8644.jpg',
     title: 'Vegetarische quinoa',
@@ -59,8 +47,11 @@ const init = () => {
     tags: ['Vegetarisch', 'Middageten', 'Gezond']
   }));
 
-  window.store = store;
+  // Seed comment on post
+  store.posts[0].addComment('Lien', 'Yummy!');
+  store.posts[0].addComment('Lieselot', 'Ziet er goed uit!');
 
+  window.store = store;
   renderPosts(store);
 };
 
