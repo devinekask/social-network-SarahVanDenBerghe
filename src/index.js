@@ -1,4 +1,4 @@
-import './style.css';
+// import './style.css';
 import Store from './js/Store';
 import Post from './js/Post';
 import {autorun} from 'mobx';
@@ -13,12 +13,9 @@ const renderPosts = posts => {
 
 const createPost = post => {
   const $li = document.createElement('li');
-  $li.classList.add(
-    'post',
-    post.liked ? 'post__like--true' : 'post__like--false'
-  );
+  $li.classList.add('post', post.liked ? 'post__like--true' : 'post__like--false');
 
-  $li.innerHTML = post.createPost();
+  $li.innerHTML = post.createHTML();
   $li.querySelector('.post__like').addEventListener('click', () => toggleLike(post));
   return $li;
 };

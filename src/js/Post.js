@@ -19,7 +19,7 @@ class Post {
   }
 
   // Niet finaal, al gemaakt voor volgende fases
-  createPost() {
+  createHTML() {
     return `<button class="post__like"><span class="hidden">Vind ik leuk</span></span></button>
     <img class="post__img" src="${this.picture}" alt="${this.title}">
     <div class="post__info">
