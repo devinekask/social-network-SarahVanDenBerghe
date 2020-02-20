@@ -1,54 +1,70 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
 import Store from './js/Store';
 import Post from './js/Post';
+import {useObserver} from 'mobx-react-lite';
 
+const store = new Store();
 
+ store.seed([
+   new Post({
+     picture: 'vegan-salad-bowl.jpg',
+     title: 'Vegan salad bowl',
+     user: 'Sarah Van Den Berghe',
+     description: 'Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen!  😋',
+     tags: ['Vegetarisch', 'Avondeten', 'Gezond']
+   }),
+ ]);
 
-const renderPosts = store => {
-  const $postList = document.querySelector('.posts');
-  $postList.innerHTML = '';
-  console.log(store.posts)
-  store.posts.forEach(post => {
-    // $postList.appendChild(createPost(post, store));
-    $postList.appendChild(createPost(post, store));
-  })
+ store.seed([
+   store.posts[0].addComment('Laura', 'Yummy!'),
+   store.posts[0].addComment('Anna', 'Ziet er goed uit!')
+ ]);
+
+const App = () => {
+  return useObserver(() => (
+    <>
+      <ul className="posts">
+        <li className="post">
+          <button className="post__like post__like--true">
+            <span className="hidden">Vind ik leuk</span>
+          </button>
+          <img
+            className="post__img"
+            src={store.posts[0].picture}
+            alt={store.posts[0].title}
+          />
+          <div className="post__info">
+            <header>
+              <h3 className="post__title">{store.posts[0].title}</h3>
+              <p className="post__user">{store.posts[0].user}</p>
+            </header>
+            <p className="post__description">{store.posts[0].description}</p>
+            <ul className="post__tags">
+              <li className="tag">Een tag</li>
+            </ul>
+          </div>
+          <ul className="post__comments">
+            <li className="comment">
+              <span className="comment__user">User: </span>Comment
+            </li>
+          </ul>
+          <form className="form">
+            <div className="wrapper">
+              <label className="hidden">Voeg een comment toe</label>
+              <input
+                className="comment__input"
+                type="text"
+                placeholder="Type een reactie"
+              />
+              <button className="comment__submit" type="submit" />
+            </div>
+          </form>
+        </li>
+      </ul>
+    </>
+  ));
 };
 
-const createPost = (post, store) => {
-  const $li = document.createElement('li');
-  $li.classList.add('post')
-  $li.innerHTML = `<button class="post__like post__like--false"><span class="hidden">Vind ik leuk</span></span></button>
-      <img class="post__img" src="${post.picture}" alt="${post.title}">
-      <div class="wrapper">
-        <header>
-          <h3 class="post__title">${post.title}</h3>
-          <p class="post__user">${post.user}</p>
-        </header>
-        <p class="post__description">${post.description}</p>
-        <ul class="post__tags">
-          <li class="tag">${post.tags}</li>
-        </ul>
-      </div>`;
-  return $li;
-};
-
-
-const init = () => {
-  const store = new Store();
-
-  // Seed
-  store.posts.push(new Post({
-    picture: '../src/assets/img/IMG_8644.jpg',
-    title: 'Vegetarische quinoa',
-    user: 'Sarah Van Den Berghe',
-    description: 'Heerlijke vegetarische quinoa gemaakt deze middag, vol met proteïnen! 😋',
-    tags: ['Vegetarisch', 'Test']
-  }));
-
-  window.store = store;
-  console.log(store);
-
-  renderPosts(store);
-};
-
-init();
+ReactDOM.render(<App />, document.getElementById('root'));
