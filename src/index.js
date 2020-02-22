@@ -17,40 +17,50 @@ const store = new Store();
    }),
  ]);
 
- store.seed([
-   store.posts[0].addComment('Laura', 'Yummy!'),
-   store.posts[0].addComment('Anna', 'Ziet er goed uit!')
- ]);
+store.posts[0].addComment('Laura', 'Yummy!');
+store.posts[0].addComment('Anna', 'Ziet er goed uit!');
 
 const App = () => {
+  
   return useObserver(() => (
     <>
       <ul className="posts">
-        <li className="post">
-          <button className="post__like post__like--true">
+        {store.posts.map(post => (
+          <li className="post" key={post.title}>
+            <button className={`post__like ${post.liked ? "post__like--true" : "post__like--false"}`}
+              onClick={() => { post.toggleLike(post.liked ? false : true); console.log(post.liked); }}>
             <span className="hidden">Vind ik leuk</span>
           </button>
           <img
             className="post__img"
-            src={store.posts[0].picture}
-            alt={store.posts[0].title}
+            src={post.picture}
+            alt={post.title}
           />
           <div className="post__info">
             <header>
-              <h3 className="post__title">{store.posts[0].title}</h3>
-              <p className="post__user">{store.posts[0].user}</p>
+              <h3 className="post__title">{post.title}</h3>
+              <p className="post__user">{post.user}</p>
             </header>
-            <p className="post__description">{store.posts[0].description}</p>
+            <p className="post__description">{post.description}</p>
             <ul className="post__tags">
-              <li className="tag">Een tag</li>
+                {post.tags.map(tag => (
+                  <li className="tag" key={tag}>{tag}</li>
+                ))}
             </ul>
           </div>
           <ul className="post__comments">
-            <li className="comment">
-              <span className="comment__user">User: </span>Comment
-            </li>
+            {post.comments.map(comment => (
+              <li className="comment" key={comment.comment}>
+                <span className="comment__user">{comment.user}: </span>{comment.comment}
+              </li>
+            ))}
           </ul>
-          <form className="form">
+            <form className="form"
+              onSubmit={(e) => {
+                post.addComment('Anoniem', e.currentTarget.querySelector(`.comment__input`).value)
+              }
+            }
+            >
             <div className="wrapper">
               <label className="hidden">Voeg een comment toe</label>
               <input
@@ -62,6 +72,7 @@ const App = () => {
             </div>
           </form>
         </li>
+        ))}
       </ul>
     </>
   ));
