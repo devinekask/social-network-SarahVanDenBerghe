@@ -21,57 +21,74 @@ store.posts[0].addComment('Laura', 'Yummy!');
 store.posts[0].addComment('Anna', 'Ziet er goed uit!');
 
 const App = () => {
+
+  const pushComment = (post, e, user, input) => {
+    post.addComment(user, input.value);
+    input.value = '';
+    e.preventDefault();
+  }
   
   return useObserver(() => (
     <>
       <ul className="posts">
         {store.posts.map(post => (
           <li className="post" key={post.title}>
-            <button className={`post__like ${post.liked ? "post__like--true" : "post__like--false"}`}
-              onClick={() => { post.toggleLike(post.liked ? false : true); console.log(post.liked); }}>
-            <span className="hidden">Vind ik leuk</span>
-          </button>
-          <img
-            className="post__img"
-            src={post.picture}
-            alt={post.title}
-          />
-          <div className="post__info">
-            <header>
-              <h3 className="post__title">{post.title}</h3>
-              <p className="post__user">{post.user}</p>
-            </header>
-            <p className="post__description">{post.description}</p>
-            <ul className="post__tags">
-                {post.tags.map(tag => (
-                  <li className="tag" key={tag}>{tag}</li>
-                ))}
-            </ul>
-          </div>
-          <ul className="post__comments">
-            {post.comments.map(comment => (
-              <li className="comment" key={comment.comment}>
-                <span className="comment__user">{comment.user}: </span>{comment.comment}
-              </li>
-            ))}
-          </ul>
-            <form className="form"
-              onSubmit={(e) => {
-                post.addComment('Anoniem', e.currentTarget.querySelector(`.comment__input`).value)
-              }
-            }
+            <button
+              className={`post__like ${
+                post.liked ? 'post__like--true' : 'post__like--false'
+              }`}
+              onClick={() => {
+                post.toggleLike(post.liked ? false : true);
+                console.log(post.liked);
+              }}
             >
-            <div className="wrapper">
-              <label className="hidden">Voeg een comment toe</label>
-              <input
-                className="comment__input"
-                type="text"
-                placeholder="Type een reactie"
-              />
-              <button className="comment__submit" type="submit" />
+              <span className="hidden">Vind ik leuk</span>
+            </button>
+            <img className="post__img" src={post.picture} alt={post.title} />
+            <div className="post__info">
+              <header>
+                <h3 className="post__title">{post.title}</h3>
+                <p className="post__user">{post.user}</p>
+              </header>
+              <p className="post__description">{post.description}</p>
+              <ul className="post__tags">
+                {post.tags.map(tag => (
+                  <li className="tag" key={tag}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </form>
-        </li>
+            <ul className="post__comments">
+              {post.comments.map(comment => (
+                <li className="comment" key={comment.comment}>
+                  <span className="comment__user">{comment.user}: </span>
+                  {comment.comment}
+                </li>
+              ))}
+            </ul>
+            <form
+              className="form"
+              onSubmit={e =>
+                pushComment(
+                  post,
+                  e,
+                  'Anoniem',
+                  e.currentTarget.querySelector(`.comment__input`)
+                )
+              }
+            >
+              <div className="wrapper">
+                <label className="hidden">Voeg een comment toe</label>
+                <input
+                  className="comment__input"
+                  type="text"
+                  placeholder="Type een reactie"
+                />
+                <button className="comment__submit" type="button" />
+              </div>
+            </form>
+          </li>
         ))}
       </ul>
     </>
