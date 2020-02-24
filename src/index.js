@@ -22,9 +22,9 @@ store.posts[0].addComment('Anna', 'Ziet er goed uit!');
 
 const App = () => {
 
-  const pushComment = (post, e, user, input) => {
-    post.addComment(user, input.value);
-    input.value = '';
+  const pushComment = (post, e) => {
+    post.addComment(post.activeInput.user, post.activeInput.comment);
+    post.setComment(post.activeInput.user, '')
     e.preventDefault();
   }
   
@@ -39,7 +39,6 @@ const App = () => {
               }`}
               onClick={() => {
                 post.toggleLike(post.liked ? false : true);
-                console.log(post.liked);
               }}
             >
               <span className="hidden">Vind ik leuk</span>
@@ -70,12 +69,7 @@ const App = () => {
             <form
               className="form"
               onSubmit={e =>
-                pushComment(
-                  post,
-                  e,
-                  'Anoniem',
-                  e.currentTarget.querySelector(`.comment__input`)
-                )
+                pushComment(post, e)
               }
             >
               <div className="wrapper">
@@ -84,6 +78,8 @@ const App = () => {
                   className="comment__input"
                   type="text"
                   placeholder="Type een reactie"
+                  value={post.activeInput.comment}
+                  onChange={e => post.setComment('Anoniem', e.currentTarget.value)}
                 />
                 <button className="comment__submit" type="button" />
               </div>

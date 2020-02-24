@@ -26,7 +26,7 @@ test('Add a comment to a post', () => {
     tags: ['Vegetarisch', 'Avondeten', 'Gezond']
   });
 
-  post.addComment('Laura', 'Yummy!'),
+  post.addComment('Laura', 'Yummy!');
   expect(post.comments.length).toBe(1);
   expect(post.comments[0].user).toBe('Laura');
   expect(post.comments[0].comment).toBe('Yummy!');

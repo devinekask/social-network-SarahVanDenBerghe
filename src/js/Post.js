@@ -8,10 +8,15 @@ class Post {
     this.tags = tags;
     this.liked = liked;
     this.comments = [];
+    this.activeInput = { user: 'Anoniem', comment: '' };
   }
 
   toggleLike(value) {
     this.liked = value;
+  }
+
+  setComment(user, comment) {
+    this.activeInput = { user: user, comment: comment }
   }
 
   addComment(user, comment) {
@@ -22,6 +27,8 @@ class Post {
 decorate(Post, {
   liked: observable,
   comments: observable,
+  activeInput: observable,
+  setComment: action,
   addComment: action,
   toggleLike: action,
   createPost: action
