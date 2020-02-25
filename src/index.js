@@ -9,7 +9,7 @@ const store = new Store();
 
  store.seed([
    new Post({
-     picture: 'vegan-salad-bowl.jpg',
+     picture: 'assets/vegan-salad-bowl.jpg',
      title: 'Vegan salad bowl',
      user: 'Sarah Van Den Berghe',
      description: 'Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen!  😋',
