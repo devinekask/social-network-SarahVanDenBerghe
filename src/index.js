@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import Store from './js/Store';
-import Post from './js/Post';
+import Store from './js/stores/Store';
+import Post from './js/models/Post';
 import {useObserver} from 'mobx-react-lite';
 
 const store = new Store();

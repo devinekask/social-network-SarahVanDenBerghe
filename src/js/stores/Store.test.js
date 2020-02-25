@@ -1,5 +1,5 @@
 import Store from './Store';
-import Post from './Post';
+import Post from './../models/Post';
 
 test('Create a new empty store', function() {
   const store = new Store();
