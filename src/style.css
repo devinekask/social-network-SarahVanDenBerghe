@@ -20,8 +20,7 @@ body {
   color: var(--darkBlue);
   background-color: var(--darkBlue);
 
-  /* nog fontface */
-  font-family: Montserrat, sans-serif;
+  font-family: montserrat, sans-serif;  
   font-weight: 300;
 }
 
@@ -110,7 +109,7 @@ header::before {
 }
 
 .post__title {
-  font-family: Essonnes, serif;
+  font-family: essonnes-display, serif;
   font-weight: 400;
   font-size: 1.6rem;
 }
@@ -178,7 +177,7 @@ header::before {
 
 .comment__input {
   background: none;
-  font-family: Montserrat, sans-serif;
+  font-family: montserrat, sans-serif;
   font-size: .88rem;
   border: none;
   padding: .5rem 0 .5rem .8rem;
