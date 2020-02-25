@@ -34,9 +34,8 @@ const App = () => {
         {store.posts.map(post => (
           <li className="post" key={post.title}>
             <button
-              className={`post__like ${
-                post.liked ? 'post__like--true' : 'post__like--false'
-              }`}
+              style={{ backgroundImage: `url(${post.liked ? 'assets/heart--true.svg' : 'assets/heart--false.svg'})` }}
+              className='post__like'
               onClick={() => {
                 post.toggleLike(post.liked ? false : true);
               }}
@@ -81,7 +80,7 @@ const App = () => {
                   value={post.activeInput.comment}
                   onChange={e => post.setComment('Anoniem', e.currentTarget.value)}
                 />
-                <button className="comment__submit" type="button" />
+                <button className="comment__submit" type="button" style={{ backgroundImage: `url(assets/arrow.svg)` }} />
               </div>
             </form>
           </li>
