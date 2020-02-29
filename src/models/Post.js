@@ -1,6 +1,10 @@
+import Comment from '../models/Comment';
 import {decorate, observable, action} from 'mobx';
+import { v4 as uuidv4 } from 'uuid';
+
 class Post {
   constructor({picture, title, user, description, tags, liked = false}) {
+    this.id = uuidv4();
     this.picture = picture;
     this.title = title;
     this.user = user;
@@ -8,19 +12,19 @@ class Post {
     this.tags = tags;
     this.liked = liked;
     this.comments = [];
-    this.activeInput = { user: 'Anoniem', comment: '' };
+    this.activeInput = '';
   }
 
   toggleLike(value) {
     this.liked = value;
   }
 
-  setComment(user, comment) {
-    this.activeInput = { user: user, comment: comment }
+  setComment(comment) {
+    this.activeInput = comment;
   }
 
-  addComment(user, comment) {
-    this.comments.push({user: user, comment: comment});
+  addComment(user, content) {
+    this.comments.push(new Comment(user, content));
   }
 }
 

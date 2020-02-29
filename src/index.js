@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import Store from './js/stores/Store';
-import Post from './js/models/Post';
-import {useObserver} from 'mobx-react-lite';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import Store from './stores/Store';
+import Post from './models/Post';
 
 const store = new Store();
 
@@ -17,77 +18,8 @@ const store = new Store();
    }),
  ]);
 
-store.posts[0].addComment('Laura', 'Yummy!');
-store.posts[0].addComment('Anna', 'Ziet er goed uit!');
+store.posts[0].addComment({user:'Laura', content: 'Yummy!'});
+store.posts[0].addComment({user:'Anna', content: 'Ziet er goed uit!'});
 
-const App = () => {
-
-  const pushComment = (post, e) => {
-    post.addComment(post.activeInput.user, post.activeInput.comment);
-    post.setComment(post.activeInput.user, '')
-    e.preventDefault();
-  }
-  
-  return useObserver(() => (
-    <>
-      <ul className="posts">
-        {store.posts.map(post => (
-          <li className="post" key={post.title}>
-            <button
-              style={{ backgroundImage: `url(${post.liked ? 'assets/heart--true.svg' : 'assets/heart--false.svg'})` }}
-              className='post__like'
-              onClick={() => {
-                post.toggleLike(post.liked ? false : true);
-              }}
-            >
-              <span className="hidden">Vind ik leuk</span>
-            </button>
-            <img className="post__img" src={post.picture} alt={post.title} />
-            <div className="post__info">
-              <header>
-                <h3 className="post__title">{post.title}</h3>
-                <p className="post__user">{post.user}</p>
-              </header>
-              <p className="post__description">{post.description}</p>
-              <ul className="post__tags">
-                {post.tags.map(tag => (
-                  <li className="tag" key={tag}>
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <ul className="post__comments">
-              {post.comments.map(comment => (
-                <li className="comment" key={comment.comment}>
-                  <span className="comment__user">{comment.user}: </span>
-                  {comment.comment}
-                </li>
-              ))}
-            </ul>
-            <form
-              className="form"
-              onSubmit={e =>
-                pushComment(post, e)
-              }
-            >
-              <div className="wrapper">
-                <label className="hidden">Voeg een comment toe</label>
-                <input
-                  className="comment__input"
-                  type="text"
-                  placeholder="Type een reactie"
-                  value={post.activeInput.comment}
-                  onChange={e => post.setComment('Anoniem', e.currentTarget.value)}
-                />
-                <button className="comment__submit" type="button" style={{ backgroundImage: `url(assets/arrow.svg)` }} />
-              </div>
-            </form>
-          </li>
-        ))}
-      </ul>
-    </>
-  ));
-};
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App store={store} />, document.getElementById("root"));
+serviceWorker.unregister();

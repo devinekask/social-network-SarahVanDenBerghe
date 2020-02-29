@@ -1,4 +1,4 @@
-import Post from './../models/Post';
+import Post from '../models/Post';
 import {decorate, observable, action, configure} from 'mobx';
 
 configure({enforceActions: 'observed'});
