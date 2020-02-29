@@ -1,5 +1,6 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
+import PropTypes from 'prop-types';
 
 const Form = ({ post }) => {
 
@@ -29,6 +30,10 @@ const pushComment = (post, e) => {
             </div>
         </form>
     ));
+};
+
+Form.propTypes = {
+  form: PropTypes.object.isRequired
 };
 
 export default Form;

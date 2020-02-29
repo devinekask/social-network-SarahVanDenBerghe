@@ -1,8 +1,7 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
 import Post from "./Post";
-
-// this.posts = [];
+import PropTypes from 'prop-types';
 
 const Posts = ({ store }) => {
     return useObserver(() => (
@@ -15,6 +14,10 @@ const Posts = ({ store }) => {
             ))}
         </ul>
     ));
+};
+
+Posts.propTypes = {
+  store: PropTypes.object.isRequired
 };
 
 

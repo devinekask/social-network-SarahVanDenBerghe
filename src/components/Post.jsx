@@ -2,6 +2,7 @@ import React from "react";
 import { useObserver } from "mobx-react-lite";
 import Comment from "./Comment";
 import Form from "./Form";
+import PropTypes from 'prop-types';
 
 const Post = ({ post }) => {
     return useObserver(() => (
@@ -39,5 +40,10 @@ const Post = ({ post }) => {
         </li>
     ));
 };
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+};
+
 
 export default Post;

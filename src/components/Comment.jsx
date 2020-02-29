@@ -1,5 +1,6 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
+import PropTypes from 'prop-types';
 
 const Comment = ({ comment }) => {
     return useObserver(() => (
@@ -8,6 +9,10 @@ const Comment = ({ comment }) => {
             {comment.content}
         </li>
     ));
+};
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired
 };
 
 export default Comment;
