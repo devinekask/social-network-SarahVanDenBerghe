@@ -33,7 +33,7 @@ const pushComment = (post, e) => {
 };
 
 Form.propTypes = {
-  form: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired
 };
 
 export default Form;
