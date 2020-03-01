@@ -12,15 +12,10 @@ class Post {
     this.tags = tags;
     this.liked = liked;
     this.comments = [];
-    this.activeInput = '';
   }
 
   toggleLike(value) {
     this.liked = value;
-  }
-
-  setComment(comment) {
-    this.activeInput = comment;
   }
 
   addComment(user, content) {
