@@ -9,7 +9,7 @@ const NavBar = () => {
                     <NavLink exact strict to="/">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/search">Settings</NavLink>
+                    <NavLink to="/settings">Settings</NavLink>
                 </li>
                 <li>
                     <NavLink to="/profile">Profile</NavLink>

@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { Switch, Redirect } from 'react-router';
 
 import Home from "./components/Home/index";
-import NavBar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import AddPost from "./components/AddPost";
 
 const App = () => {

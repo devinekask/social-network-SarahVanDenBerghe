@@ -1,0 +1,20 @@
+.comment {
+    padding-bottom: .3rem;
+}
+
+.comment:first-of-type {
+  padding-top: 1rem;
+}
+
+.comment:first-of-type::before {
+  position: absolute;
+  content: '';
+  width: 82%;
+  height: 2px;
+  background-color: #f2f5f9;
+  transform: translateY(-1rem);
+}
+
+.comment__user {
+  font-weight: bold;
+}
