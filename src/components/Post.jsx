@@ -1,7 +1,7 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
 import Comment from "./Comment";
-import Form from "./Form";
+import FormComment from "./FormComment";
 import PropTypes from 'prop-types';
 
 const Post = ({ post }) => {
@@ -24,11 +24,7 @@ const Post = ({ post }) => {
                 </header>
                 <p className="post__description">{post.description}</p>
                 <ul className="post__tags">
-                    {post.tags.map(tag => (
-                        <li className="tag" key={tag}>
-                            {tag}
-                        </li>
-                    ))}
+                    {post.tags ? post.tags.map(tag => (<li className="tag" key={tag}>{tag}</li>)) : '' }
                 </ul>
             </div>
             <ul className="post__comments">
@@ -36,7 +32,7 @@ const Post = ({ post }) => {
                     <Comment key={comment.id} comment={comment} />
                 ))}
             </ul>
-            <Form post={post} />
+            <FormComment post={post} />
         </li>
     ));
 };

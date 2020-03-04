@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
 
-const Form = ({ post }) => {
+const FormComment = ({ post }) => {
 
     const [content, setContent] = useState('');
 
@@ -17,8 +17,9 @@ const Form = ({ post }) => {
     return useObserver(() => (
       <form className="form" onSubmit={e => handleFormSubmit(post, e)}>
         <div className="wrapper">
-          <label className="hidden">Voeg een comment toe</label>
+          <label htmlFor="comment" className="hidden">Voeg een comment toe</label>
           <input
+            id="comment"
             className="comment__input"
             type="text"
             placeholder="Type een reactie"
@@ -35,8 +36,8 @@ const Form = ({ post }) => {
     ));
 };
 
-Form.propTypes = {
+FormComment.propTypes = {
   post: PropTypes.object.isRequired
 };
 
-export default Form;
+export default FormComment;
