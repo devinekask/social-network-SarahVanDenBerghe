@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
+import { useStore } from '../../hooks';
 
-const FormPost = ({ store }) => {
+const FormPost = () => {
+    const store = useStore();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -43,10 +45,6 @@ const FormPost = ({ store }) => {
             </div>
         </form>
     ));
-};
-
-FormPost.propTypes = {
-    store: PropTypes.object.isRequired
 };
 
 export default FormPost;

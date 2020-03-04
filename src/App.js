@@ -1,12 +1,35 @@
 import React from 'react';
-import Posts from "./components/Posts";
-import FormPost from "./components/FormPost";
+import { Route } from "react-router-dom";
+import { Switch, Redirect } from 'react-router';
 
-function App({ store }) {
+import Home from "./components/Home/index";
+import NavBar from "./components/Navbar";
+import AddPost from "./components/AddPost";
+
+const App = () => {
+
+  // const isLoggedIn = false;
+
   return (
     <>
-      <Posts store={store} />
-      <FormPost store={store} />
+      <NavBar />
+      <Switch>
+        <Route path="/detail/:id">
+          {/*<Detail />*/}
+        </Route>
+        <Route path="/profile">
+          {/*{isLoggedIn ? <Profile /> : <Redirect to="/" />*/}
+        </Route>
+        <Route path="/settings">
+          {/*<Settings />*/}
+        </Route>
+        <Route path="/add">
+          <AddPost />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </>
   );
 }

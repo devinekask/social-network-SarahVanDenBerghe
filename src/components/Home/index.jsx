@@ -1,11 +1,12 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
-import Post from "./Post";
-import PropTypes from 'prop-types';
+import Post from "../Post/index";
+import { useStore } from '../../hooks';
 
-const Posts = ({ store }) => {
+const Home = () => {
+    const store = useStore();
+    
     return useObserver(() => (
-        <>
         <ul className="posts">
             {store.posts.map(post => (
                 <Post
@@ -14,13 +15,7 @@ const Posts = ({ store }) => {
                 />
             ))}
         </ul>
-        </>
-    ))
+    ));
 };
 
-Posts.propTypes = {
-  store: PropTypes.object.isRequired
-};
-
-
-export default Posts;
+export default Home;

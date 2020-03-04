@@ -1,7 +1,7 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
-import Comment from "./Comment";
-import FormComment from "./FormComment";
+import Comment from "../Comment/index";
+import FormComment from "../AddComment/index";
 import PropTypes from 'prop-types';
 
 const Post = ({ post }) => {
