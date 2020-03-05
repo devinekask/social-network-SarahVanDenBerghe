@@ -3,7 +3,7 @@ import { useObserver } from "mobx-react-lite";
 import PostComment from "../PostComment/index";
 import PostAddComment from "../PostAddComment/index";
 import PropTypes from 'prop-types';
-import styles from './PostComments.module.css';
+import styles from './PostComments.module.scss';
 
 const PostComments = ({ post }) => {
     return useObserver(() => (

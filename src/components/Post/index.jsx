@@ -5,7 +5,7 @@ import PostLike from "../PostLike/index";
 import PostImage from "../PostImage/index";
 import PostInfo from "../PostInfo/index";
 import PropTypes from 'prop-types';
-import styles from './Post.module.css';
+import styles from './Post.module.scss';
 
 const Post = ({ post }) => {
     return useObserver(() => (

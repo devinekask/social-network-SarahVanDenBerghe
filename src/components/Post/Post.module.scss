@@ -1,8 +1,10 @@
+@import './../../style/_variables.scss';
+
 .post {
-  margin: 1rem;
-  max-width: 23rem;
+  margin: $spacerRegular;
+  max-width: 22rem;
   background: white;
-  border-radius: 1.25rem;
+  border-radius: $borderRadius;
   position: relative;
 }
 
@@ -12,7 +14,6 @@
   height: 20rem;
   width: 100%;
   background-image: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 50%);
-  border-radius: 1.25rem 1.25rem 0 0;
   top: 0;
   left: 0;
 }

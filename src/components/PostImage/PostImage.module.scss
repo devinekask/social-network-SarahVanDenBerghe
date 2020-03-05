@@ -1,0 +1,8 @@
+@import './../../style/_variables.scss';
+
+.post__img {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: .75rem .75rem 0 0;
+}

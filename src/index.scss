@@ -1,0 +1,32 @@
+@import 'style/_reset.scss';
+@import 'style/_variables.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  font-size: $fontsizeRegular;
+  line-height: 1.5;
+  background-color: $primaryColor;
+  font-family: $fontBody;
+  font-weight: 300;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  max-width: 90rem;
+  justify-content: center;
+  margin: 3rem 0;
+}

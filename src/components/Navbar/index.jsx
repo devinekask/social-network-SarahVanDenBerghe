@@ -1,21 +1,22 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <NavLink exact strict to="/">Home</NavLink>
+        <nav className={styles.navbar}>
+            <ul className={styles.menu}>
+                <li className={styles.menu__item}>
+                    <NavLink className={styles.menu__link} exact strict to="/">Home</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/settings">Settings</NavLink>
+                <li className={styles.menu__item}>
+                    <NavLink className={styles.menu__link} to="/settings">Settings</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/profile">Profile</NavLink>
+                <li className={styles.menu__item}>
+                    <NavLink className={styles.menu__link} to="/profile">Profile</NavLink>
                 </li>
-                <li>
-                    <NavLink to="/add">Create post</NavLink>
+                <li className={styles.menu__item}>
+                    <NavLink className={styles.menu__link} to="/add">Create post</NavLink>
                 </li>
             </ul>
         </nav>

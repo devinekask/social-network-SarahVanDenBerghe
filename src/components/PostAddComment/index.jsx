@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
-import styles from './PostAddComment.module.css';
+import styles from './PostAddComment.module.scss';
 
 const FormComment = ({ post }) => {
 
