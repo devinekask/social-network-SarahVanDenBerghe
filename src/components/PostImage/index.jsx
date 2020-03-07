@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import styles from './PostImage.module.scss';
+import styles from './PostImage.module.css';
 
 const PostImage = ({ post }) => {
     return (

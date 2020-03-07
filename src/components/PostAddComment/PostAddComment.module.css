@@ -1,0 +1,24 @@
+@value tokens: "../../style/tokens.module.css";
+@value fontBody, borderRadius, spacerSmall from tokens;
+
+
+.form {
+  composes: form from "../../style/forms.module.css";
+}
+
+.comment__input {
+  composes: input from "../../style/forms.module.css";
+  width: 90%;
+}
+
+.comment__submit {
+  composes: submit from "../../style/forms.module.css";
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  background-color: rgb(239, 244, 252);
+  border-radius: .5rem;
+  margin-top: spacerSmall;
+}

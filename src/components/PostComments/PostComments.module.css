@@ -1,0 +1,6 @@
+@value tokens: "../../style/tokens.module.css";
+@value spacerSmall from tokens;
+
+.post__comments {
+  padding: 0 spacerSmall 0;
+}

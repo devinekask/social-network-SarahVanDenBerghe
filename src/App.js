@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from "react-router-dom";
-import { Switch, Redirect } from 'react-router';
-
+import { Switch } from 'react-router';
+import styles from "./App.module.css";
 import Home from "./components/Home/index";
 import NavBar from "./components/NavBar";
 import AddPost from "./components/AddPost";
@@ -11,7 +11,8 @@ const App = () => {
   // const isLoggedIn = false;
 
   return (
-    <>
+    <div className={styles.app}>
+      <div className={styles.content}>
       <NavBar />
       <Switch>
         <Route path="/detail/:id">
@@ -30,7 +31,8 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-    </>
+      </div>
+    </div>
   );
 }
 

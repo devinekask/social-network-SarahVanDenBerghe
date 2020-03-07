@@ -1,0 +1,20 @@
+@value primaryColor: #253246;
+@value primaryColorLight: #F0F4FB;
+
+@value secondaryColor: #FF6974;
+@value secondaryColorLight: #FBE1E3;
+
+@value fontTitle: essonnes-display, serif;
+@value fontBody: montserrat, sans-serif;
+@value fontSizeSmall: 0.75rem;
+@value fontSizeRegular: 0.875rem;
+@value fontSizeBig: 1.125rem;
+@value fontSizeExtrabig: 1.6rem;
+
+@value borderRadius: .75rem;
+@value spacerSmall: 1.25rem;
+@value spacerRegular: 1.875rem;
+
+@value mediumScreen: 1440px;
+@value smallScreen: 960px;
+@value extraSmallScreen: 500px;

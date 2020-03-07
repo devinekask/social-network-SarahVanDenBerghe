@@ -1,5 +1,8 @@
+@value tokens: "../../style/tokens.module.css";
+@value primaryColorLight from tokens;
+
 .comment {
-    padding-bottom: .3rem;
+  padding-bottom: .3rem;
 }
 
 .comment:first-of-type {
@@ -11,7 +14,7 @@
   content: '';
   width: 82%;
   height: 2px;
-  background-color: #f2f5f9;
+  background-color: primaryColorLight;
   transform: translateY(-1rem);
 }
 

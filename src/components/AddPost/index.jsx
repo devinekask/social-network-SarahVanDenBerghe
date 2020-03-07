@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
-import PropTypes from 'prop-types';
 import { useStore } from '../../hooks';
 
 const FormPost = () => {
@@ -8,7 +7,7 @@ const FormPost = () => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [tags, setTags] = useState('');
+    // const [tags, setTags] = useState('');
     const [image, setImage] = useState('assets/vegan-salad-bowl.jpg');
 
 
@@ -28,15 +27,15 @@ const FormPost = () => {
                 <label htmlFor="title">Title
                     <input id="title" type="text" value={title} onChange={e => setTitle(e.currentTarget.value)} />
                 </label>
-                {/* <label htmlFor="description">Description
+                <label htmlFor="description">Description
                     <input id="description" type="text" onChange={e => setDescription(e.currentTarget.value)} />
                 </label>
                 <label htmlFor="tags">Tags
-                    <input id="tags" type="text" onChange={e => setTags(e.currentTarget.value)} />
+                    {/*<input id="tags" type="text" onChange={e => setTags(e.currentTarget.value)} />*/}
                 </label>
                 <label htmlFor="image">Image
                     <input type="file" onChange={(e) => setImage(e.currentTarget.value)} />
-                </label> */}
+                </label>
                 <button
                     className="comment__submit"
                     type="button"

@@ -1,0 +1,18 @@
+@value tokens: "style/tokens.module.css";
+@value fontSizeRegular, primaryColor, fontBody from tokens;
+
+.app {
+    font-size: fontSizeRegular;
+    line-height: 1.5;
+    color: primaryColor;
+    font-family: fontBody;
+    font-weight: 300;
+    height: 100%;
+}
+
+.content {
+    display: grid;
+    max-width: 90rem;
+    grid-template-columns: 17rem 1fr;
+    margin: 3rem auto; 
+}

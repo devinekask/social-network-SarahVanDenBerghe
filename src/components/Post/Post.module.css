@@ -1,10 +1,11 @@
-@import './../../style/_variables.scss';
+@value tokens: "../../style/tokens.module.css";
+@value borderRadius, spacerRegular from tokens;
 
 .post {
-  margin: $spacerRegular;
+  margin: 0 spacerRegular spacerRegular 0;
   max-width: 22rem;
   background: white;
-  border-radius: $borderRadius;
+  border-radius: borderRadius;
   position: relative;
 }
 
