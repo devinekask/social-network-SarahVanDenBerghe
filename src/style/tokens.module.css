@@ -1,20 +1,36 @@
+
 @value primaryColor: #253246;
 @value primaryColorLight: #F0F4FB;
 
 @value secondaryColor: #FF6974;
 @value secondaryColorLight: #FBE1E3;
 
-@value fontTitle: essonnes-display, serif;
-@value fontBody: montserrat, sans-serif;
-@value fontSizeSmall: 0.75rem;
-@value fontSizeRegular: 0.875rem;
-@value fontSizeBig: 1.125rem;
+@value fontTitle: jaf-domus, sans-serif;
+@value fontBody: jaf-domus, sans-serif;
+@value fontSizeExtraSmall: .75rem;
+@value fontSizeSmall: .9rem;
+@value fontSizeRegular: 1rem;
+@value fontSizeBig: 1.2rem;
 @value fontSizeExtrabig: 1.6rem;
+@value fontWeightLight: 200;
+@value fontWeightRegular: 400;
 
 @value borderRadius: .75rem;
+@value letterSpacing: .05rem;
+
 @value spacerSmall: 1.25rem;
 @value spacerRegular: 1.875rem;
 
 @value mediumScreen: 1440px;
 @value smallScreen: 960px;
 @value extraSmallScreen: 500px;
+
+
+
+
+/* @value fontTitle: essonnes-display, serif;
+@value fontBody: montserrat, sans-serif;
+@value fontSizeSmall: 0.75rem;
+@value fontSizeRegular: 0.875rem;
+@value fontSizeBig: 1.125rem;
+@value fontSizeExtrabig: 1.6rem; */

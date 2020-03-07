@@ -10,9 +10,10 @@ const PostInfo = ({ post }) => {
                 <p className={styles.post__user}>{post.user}</p>
             </header>
             <p className={styles.post__description}>{post.description}</p>
+            {post.tags ? 
             <ul className={styles.post__tags}>
                 {post.tags ? post.tags.map(tag => (<li className={styles.tag} key={tag}>{tag}</li>)) : '' }
-            </ul>
+            </ul> : '' }
         </div>
     )
 };

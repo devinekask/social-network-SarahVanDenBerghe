@@ -1,8 +1,8 @@
 @value tokens: "../../style/tokens.module.css";
-@value spacerSmall, secondaryColor, secondaryColorLight from tokens;
+@value spacerSmall, secondaryColor, secondaryColorLight, fontTitle, fontSizeSmall, fontSizeExtraSmall from tokens;
 
 .post__info {
-  padding: spacerSmall;
+  padding: spacerSmall spacerSmall 0;
   margin-top: -4rem;
 }
 
@@ -15,39 +15,30 @@ header::before {
   position: absolute;
   content: '';
   width: 2px;
-  height: 100%;
+  height: 80%;
   background-color: secondaryColor;
-  transform: translateX(-1rem);
+  transform: translate(-1rem, .5rem);
 }
 
 .post__title {
-  font-family: $fontTitle;
-  font-weight: 400;
-  font-size: 1.6rem;
+  composes: title from "../../style/typo.module.css";
 }
 
 .post__user {
-  font-size: .8rem;
-  text-transform: uppercase;
-  letter-spacing: .05rem;
-  opacity: .6;
-  margin-bottom: spacerSmall;
+  composes: subtitle from "../../style/typo.module.css";
 }
 
 .post__description {
-  margin-bottom: spacerSmall;
-  line-height: 1.75;
   letter-spacing: .05rem;
 }
 
 .post__tags {
+  composes: small from "../../style/typo.module.css";
+  color: secondaryColor;
   display: flex;
   flex-wrap: wrap;
-  letter-spacing: .05rem;
-  font-size: .75rem;
-  text-transform: uppercase;
-  color: secondaryColor;
   transform: translateX(-.3rem);
+  margin: spacerSmall 0 spacerSmall;
 }
 
 .tag {

@@ -1,0 +1,23 @@
+@value tokens: "./tokens.module.css";
+@value fontTitle, fontWeightRegular, fontSizeExtraSmall, fontSizeExtrabig, spacerSmall, fontSizeSmall, fontWeightLight, letterSpacing from tokens;
+
+.title {
+    font-family: fontTitle;
+    font-weight: fontWeightRegular;
+    font-size: fontSizeExtrabig;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    font-size: fontSizeSmall;
+    letter-spacing: letterSpacing;
+    margin-bottom: spacerSmall;
+    font-weight: fontWeightLight;
+}
+
+.small {
+    text-transform: uppercase;
+    font-size: fontSizeExtraSmall;
+    letter-spacing: letterSpacing;
+    font-weight: fontWeightLight;
+}

@@ -1,0 +1,49 @@
+@value tokens: "../../style/tokens.module.css";
+@value borderRadius, fontTitle, fontBody, fontWeightLight, fontSizeRegular, secondaryColor, primaryColor from tokens;
+
+.form {
+  composes: form from "../../style/forms.module.css";
+  padding: 3rem;
+  background-color: white;
+  border-radius: borderRadius;
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+}
+
+.title {
+  composes: title from "../../style/typo.module.css";
+  margin-bottom: 1rem;
+}
+
+.post__input {
+  composes: input from "../../style/forms.module.css";
+}
+
+.post__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.label__text {
+    composes: subtitle from "../../style/typo.module.css";
+    margin-bottom: .25rem;
+}
+
+.submit {
+    margin-top: 1rem;
+    align-self: flex-start;
+    background-color: secondaryColor;
+    color: white;
+    font-family: fontBody;
+    font-size: fontSizeRegular;
+    font-weight: fontWeightLight;
+    border-radius: borderRadius;
+    padding: .5rem .8rem;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+

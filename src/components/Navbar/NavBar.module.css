@@ -13,11 +13,10 @@
 }
 
 .menu__item {
-    font-size: fontsizeBig;
+    font-size: fontSizeBig;
     padding-left: 3rem;
     background-repeat: no-repeat;
     background-position: left .02rem;
-    line-height: 1.5rem;
 
      /* @media (max-width: $mediumScreen) {
         font-size: $fontsizeRegular;

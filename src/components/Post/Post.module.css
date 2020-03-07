@@ -3,7 +3,7 @@
 
 .post {
   margin: 0 spacerRegular spacerRegular 0;
-  max-width: 22rem;
+  width: 22rem;
   background: white;
   border-radius: borderRadius;
   position: relative;
