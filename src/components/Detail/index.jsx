@@ -35,39 +35,13 @@ const Detail = () => {
                             <p className={styles.detail__date}>zaterdag 7 maart 2020</p>
                         </div>
                     </div>
-                    <p className={styles.detail__title}>Titel hier</p>
-                    <p className={styles.detail__description}>Heerlijke vegetarische quinoa gemaakt deze middag, vol met proteïnen! <span role="img" aria-label="emoji">😋</span></p>
+                    <p className={styles.detail__title}>{post.title}</p>
+                        <p className={styles.detail__description}>{post.description}</p>
                     <ul className={styles.detail__tags}>
                         <li className={styles.tag}>Tag</li>
                         <li className={styles.tag}>Tag</li>
                     </ul>
-                    {/* <ul className={styles.detail__comments}>
-                        <li className={styles.comment}>
-                            <span className={styles.comment__user}>User: </span>
-                            Hallo
-                        </li>
-                        <li className={styles.comment}>
-                            <span className={styles.comment__user}>User: </span>
-                            Hallo
-                        </li>
-                    </ul> */}
                     <Comments post={post} />
-                    {/* <form className={styles.form}>
-                        <div className={styles.wrapper}>
-                            <label htmlFor="comment" className="hidden">Voeg een comment toe</label>
-                            <input
-                                id="comment"
-                                className={styles.comment__input}
-                                type="text"
-                                placeholder="Type een reactie"
-                            />
-                            <button
-                                className={styles.comment__submit}
-                                type="button"
-                                style={{ backgroundImage: `url(assets/arrow.svg)` }}
-                            />
-                        </div>
-                    </form> */}
                 </div>
             </div>
             : '' }

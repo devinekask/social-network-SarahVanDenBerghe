@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import DataStore from '../stores/DataStore';
 import UiStore from "../stores/UiStore";
-import Post from './../models/Post'; // of via addPost?
+import Post from './../models/Post';
 
 const rootStore = { dataStore: new DataStore(), uiStore: new UiStore() };
 
@@ -20,4 +20,4 @@ rootStore.dataStore.seed([
 rootStore.dataStore.posts[0].addComment({ user: 'Laura', content: 'Yummy!' });
 rootStore.dataStore.posts[0].addComment({ user: 'Anna', content: 'Ziet er goed uit!' });
 
-export const storeContext = createContext(rootStore);
+export const storesContext = createContext(rootStore);
