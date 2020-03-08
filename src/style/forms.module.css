@@ -2,16 +2,16 @@
 @value fontBody, fontSizeExtraSmall, spacerSmall, primaryColorLight, primaryColor from tokens;
 
 .form {
-  display: flex;
-  padding: 0 spacerSmall spacerSmall;
+    display: flex;
+    padding-bottom: spacerSmall;
 }
 
 .input__wrapper {
-  width: 100%;
-  display: flex;
-  background-color: primaryColorLight;
-  border-radius: .5rem;
-  margin-top: spacerSmall;
+    width: 100%;
+    display: flex;
+    background-color: primaryColorLight;
+    border-radius: .5rem;
+    margin-top: spacerSmall;
 }
 
 .input {
@@ -27,8 +27,8 @@
 }
 
 .input:focus {
-  outline: none;
-  border: 1px solid primaryColor;
+    outline: none;
+    border: 1px solid primaryColor;
 }
 
 .input::placeholder {
@@ -38,9 +38,9 @@
 }
 
 .submit {
-  height: 100%;
-  transform: translate(.4rem, .6rem);
-  background-repeat: no-repeat;
+    height: 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 textarea {

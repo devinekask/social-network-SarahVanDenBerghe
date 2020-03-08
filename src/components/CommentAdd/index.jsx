@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
-import styles from './PostAddComment.module.css';
+import styles from './CommentAdd.module.css';
 
-const FormComment = ({ post }) => {
+const CommentAdd = ({ post }) => {
 
     const [content, setContent] = useState('');
 
@@ -37,8 +37,8 @@ const FormComment = ({ post }) => {
     ));
 };
 
-FormComment.propTypes = {
+CommentAdd.propTypes = {
   post: PropTypes.object.isRequired
 };
 
-export default FormComment;
+export default CommentAdd;

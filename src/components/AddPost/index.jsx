@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
-import { useStore } from '../../hooks';
+import { useStores } from '../../hooks';
 import styles from './AddPost.module.css';
 
 const FormPost = () => {
-    const store = useStore();
+    const { dataStore } = useStores();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -12,9 +12,9 @@ const FormPost = () => {
     const [image, setImage] = useState('assets/vegan-salad-bowl.jpg');
 
 
-    const handleSubmitForm = (store, e) => {
+    const handleSubmitForm = e => {
         e.preventDefault();
-        store.addPost(image, title, 'Anoniem', description, tags);
+        dataStore.addPost(image, title, 'Anoniem', description, tags);
         setTitle('');
         setDescription('');
         setTags('');
@@ -43,7 +43,7 @@ const FormPost = () => {
     }
 
     return useObserver(() => (
-        <form className={styles.form} onSubmit={e => handleSubmitForm(store, e)}>
+        <form className={styles.form} onSubmit={e => handleSubmitForm(e)}>
                 <p className={styles.title}>Voeg een post toe</p>
                 <label htmlFor="title" className={styles.post__label}><span className={styles.label__text}>Titel</span>
                     <input id="title" type="text" className={styles.post__input} value={title} onChange={e => setTitle(e.currentTarget.value)} required />

@@ -1,5 +1,5 @@
 @value tokens: "../../style/tokens.module.css";
-@value borderRadius, spacerRegular from tokens;
+@value borderRadius, spacerRegular, spacerSmall from tokens;
 
 .post {
   margin: 0 spacerRegular spacerRegular 0;
@@ -17,4 +17,8 @@
   background-image: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 50%);
   top: 0;
   left: 0;
+}
+
+.post__info {
+  padding: 0 spacerSmall 0;
 }

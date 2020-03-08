@@ -3,7 +3,7 @@ import {decorate, observable, action} from 'mobx';
 import { v4 as uuidv4 } from 'uuid';
 
 class Post {
-  constructor({picture, title, user, description, tags, liked = false}) {
+  constructor({picture, title, user, description, tags, liked = false, time}) {
     this.id = uuidv4();
     this.picture = picture;
     this.title = title;
@@ -11,6 +11,7 @@ class Post {
     this.description = description;
     this.tags = tags;
     this.liked = liked;
+    this.time  = time;
     this.comments = [];
   }
 

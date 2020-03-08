@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import Home from "./components/Home/index";
 import NavBar from "./components/NavBar";
 import AddPost from "./components/AddPost";
+import Detail from "./components/Detail/index";
 
 const App = () => {
 
@@ -16,7 +17,7 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route path="/detail/:id">
-          {/*<Detail />*/}
+          <Detail />
         </Route>
         <Route path="/profile">
           {/*{isLoggedIn ? <Profile /> : <Redirect to="/" />*/}

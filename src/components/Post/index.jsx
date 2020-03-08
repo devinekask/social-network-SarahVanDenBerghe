@@ -1,19 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useObserver } from "mobx-react-lite";
-import PostComments from "../PostComments/index";
+import Comments from "../Comments/index";
 import PostLike from "../PostLike/index";
 import PostImage from "../PostImage/index";
 import PostInfo from "../PostInfo/index";
 import PropTypes from 'prop-types';
 import styles from './Post.module.css';
 
-const Post = ({ post }) => {
+const Post = ({post}) => {
+
     return useObserver(() => (
         <li className={styles.post} key={post.title}>
             <PostLike post={post} />
             <PostImage post={post} />
-            <PostInfo post={post} />
-            <PostComments post={post} />
+            <div className={styles.post__info}>
+                <Link to={`/detail/${post.id}`}>
+                    <PostInfo post={post} />
+                </Link>
+                <Comments post={post} />
+            </div>
         </li>
     ));
 };

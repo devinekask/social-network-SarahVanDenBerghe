@@ -2,7 +2,6 @@
 @value spacerSmall, secondaryColor, secondaryColorLight, fontTitle, fontSizeSmall, fontSizeExtraSmall from tokens;
 
 .post__info {
-  padding: spacerSmall spacerSmall 0;
   margin-top: -4rem;
 }
 
@@ -26,6 +25,7 @@ header::before {
 
 .post__user {
   composes: subtitle from "../../style/typo.module.css";
+  margin-bottom: spacerSmall;
 }
 
 .post__description {

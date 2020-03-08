@@ -1,0 +1,128 @@
+@value tokens: "../../style/tokens.module.css";
+@value borderRadius, spacerRegular, spacerSmall, primaryColorLight, secondaryColor, secondaryColorLight from tokens;
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail {
+    background-color: white;
+    border-radius: borderRadius;
+    display: grid;
+    grid-template-columns: 45rem 1fr;
+}
+
+.detail__img {
+    border-radius: borderRadius 0 0 borderRadius;
+    object-fit: cover;
+    min-height: 40rem;
+    width: 100%;
+}
+
+.detail__info {
+    padding: spacerRegular;
+    margin-left: spacerSmall;
+}
+
+.detail__header {
+    margin-bottom: spacerRegular;
+    padding: 0;
+    display: flex;
+}
+
+.detail__header img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.detail__header div {
+    transform: translateY(.5rem);
+}
+
+.detail__title {
+    composes: title from "../../style/typo.module.css";
+    position: relative;
+    margin-bottom: spacerSmall;
+}
+
+.detail__title::before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 80%;
+    background-color: secondaryColor;
+    transform: translate(-1rem, .3rem);
+}
+
+.detail__author {
+    composes: subtitle from "../../style/typo.module.css";
+}
+
+.detail__date {
+    composes: small from "../../style/typo.module.css";
+    opacity: .6;
+}
+
+.detail__tags {
+  composes: small from "../../style/typo.module.css";
+  color: secondaryColor;
+  display: flex;
+  flex-wrap: wrap;
+  transform: translateX(-.3rem);
+  margin: spacerSmall 0 spacerSmall;
+}
+
+.tag {
+  background-color: secondaryColorLight;
+  margin: .25rem;
+  border-radius: 5px;
+  padding: .25rem .5rem;
+}
+
+/* .detail__comments {
+  padding: 0 spacerSmall 0;
+} */
+/* 
+.comment {
+  padding-bottom: .3rem;
+}
+
+.comment:first-of-type {
+  padding-top: 1rem;
+  position: relative;
+}
+
+.comment:first-of-type::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: primaryColorLight;
+  transform: translateY(-1rem);
+}
+
+.comment__user {
+  font-weight: bold;
+}
+
+
+
+.form {
+  composes: form from "../../style/forms.module.css";
+}
+
+.comment__input {
+  composes: input from "../../style/forms.module.css";
+}
+
+.comment__submit {
+  composes: submit from "../../style/forms.module.css";
+}
+
+.wrapper {
+  composes: input__wrapper from "../../style/forms.module.css";
+} */

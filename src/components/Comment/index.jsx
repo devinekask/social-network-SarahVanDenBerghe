@@ -1,9 +1,9 @@
 import React from "react";
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
-import styles from './PostComment.module.css';
+import styles from './Comment.module.css';
 
-const PostComment = ({ comment }) => {
+const Comment = ({ comment }) => {
     return useObserver(() => (
         <li className={styles.comment} key={comment.content}>
             <span className={styles.comment__user}>{comment.user}: </span>
@@ -12,8 +12,8 @@ const PostComment = ({ comment }) => {
     ));
 };
 
-PostComment.propTypes = {
+Comment.propTypes = {
   comment: PropTypes.object.isRequired
 };
 
-export default PostComment;
+export default Comment;
