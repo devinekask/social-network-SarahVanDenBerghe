@@ -5,7 +5,7 @@ import styles from './AddPost.module.css';
 import { useHistory } from 'react-router-dom'
 
 const FormPost = () => {
-    const { dataStore } = useStores();
+    const { dataStore, uiStore } = useStores();
     let history = useHistory();
 
     const [title, setTitle] = useState('');
@@ -16,7 +16,7 @@ const FormPost = () => {
 
     const handleSubmitForm = e => {
         e.preventDefault();
-        dataStore.addPost(image, title, 'Anoniem', description, tags);
+        dataStore.addPost(image, title, uiStore.currentUser, description, tags);
         setTitle('');
         setDescription('');
         setTags('');
