@@ -4,43 +4,34 @@ import { useParams } from "react-router-dom";
 import { useStores } from '../../hooks';
 import styles from './Detail.module.css';
 import Comments from "../Comments/index";
+import BackLink from "../BackLink/index";
+import Tags from "../Tags/index";
 
 const Detail = () => {
-    const { dataStore } = useStores();
+    const { dataStore, uiStore } = useStores();
     const { id } = useParams();
-
-    const posts = dataStore.posts;
-    let post = undefined;
-
-    for (let i = 0; i < posts.length; i++) {
-        if (posts[i].id === id) {
-                post = posts[i];
-        }
-    }
-
-    // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    // {new Intl.DateTimeFormat('nl-NL', options).format(post.time)}
+    const post = dataStore.getPostById(id);
+    console.log(post.picture.includes('assets/'))
 
     return useObserver(() => (
         <div className={styles.wrapper}>
-            <p>Keer terug</p>
+            <BackLink />
             {post ?
             <div className={styles.detail}>      
-                <img className={styles.detail__img} src="./../assets/vegan-salad-bowl.jpg" alt="" />
+                    <img className={styles.detail__img} src={`${post.picture.includes('assets/') ? `../${post.picture}` : post.picture}`} alt={post.title} />
                 <div className={styles.detail__info}>
-                    <div className={styles.detail__header}>
-                        <img src="./../assets/vegan-salad-bowl.jpg" alt="" />
-                        <div>
-                            <p className={styles.detail__author}>Sarah Van Den Berghe</p>
-                            <p className={styles.detail__date}>zaterdag 7 maart 2020</p>
+                    <div>
+                        <div className={styles.detail__header}>
+                                <img src={uiStore.currentUser.avatar} alt="" />
+                            <div>
+                                <p className={styles.detail__author}>{post.user.name}</p>
+                                <p className={styles.detail__date}>{post.readableTime}</p>
+                            </div>
                         </div>
-                    </div>
-                    <p className={styles.detail__title}>{post.title}</p>
+                        <p className={styles.detail__title}>{post.title}</p>
                         <p className={styles.detail__description}>{post.description}</p>
-                    <ul className={styles.detail__tags}>
-                        <li className={styles.tag}>Tag</li>
-                        <li className={styles.tag}>Tag</li>
-                    </ul>
+                        <Tags post={post} />
+                    </div>
                     <Comments post={post} />
                 </div>
             </div>

@@ -7,14 +7,14 @@ import styles from './Comments.module.css';
 
 const Comments = ({ post }) => {
     return useObserver(() => (
-        <>
-            <ul className={styles.post__comments}>
+        <div className={styles.wrapper}>
+            <ul>
                 {post.comments.map(comment => (
                     <Comment key={comment.id} comment={comment} />
                 ))}
             </ul>
             <CommentAdd post={post} />
-        </>
+        </div>
     ));
 };
 

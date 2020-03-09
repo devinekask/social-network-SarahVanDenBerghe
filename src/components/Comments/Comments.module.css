@@ -1,6 +1,8 @@
 @value tokens: "../../style/tokens.module.css";
-@value spacerSmall from tokens;
+@value fontBody, borderRadius, spacerSmall from tokens;
 
-/* .post__comments {
-  padding: 0 spacerSmall 0;
-} */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

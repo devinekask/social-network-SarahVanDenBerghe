@@ -5,7 +5,12 @@ configure({enforceActions: 'observed'});
 
 class DataStore {
   constructor() {
+    this.users = [];
     this.posts = [];
+  }
+  
+  addUser(user) {
+    this.users.push(user);
   }
 
   seed(data) {
@@ -15,6 +20,8 @@ class DataStore {
   addPost(picture, title, user, description, tags) {
     this.posts.push(new Post({picture, title, user, description, tags}));
   }
+
+  getPostById = id => this.posts.find(post => post.id === id);
 }
 
 decorate(DataStore, {

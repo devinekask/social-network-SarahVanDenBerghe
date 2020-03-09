@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
 import styles from './CommentAdd.module.css';
+import { useStores } from '../../hooks';
 
 const CommentAdd = ({ post }) => {
 
+    const { uiStore } = useStores();
     const [content, setContent] = useState('');
 
     const handleFormSubmit = (post, e) => {
         e.preventDefault();
         if (content !== '') {
-            post.addComment({ user: 'Anoniem', content: content });
+          post.addComment({ user: uiStore.currentUser, content });
             setContent('');
         }
     };

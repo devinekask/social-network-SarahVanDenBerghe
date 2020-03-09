@@ -8,13 +8,13 @@ import PostInfo from "../PostInfo/index";
 import PropTypes from 'prop-types';
 import styles from './Post.module.css';
 
-const Post = ({post}) => {
+const Post = ({ post }) => {
 
     return useObserver(() => (
         <li className={styles.post} key={post.title}>
             <PostLike post={post} />
             <PostImage post={post} />
-            <div className={styles.post__info}>
+            <div className={styles.post__text}>
                 <Link to={`/detail/${post.id}`}>
                     <PostInfo post={post} />
                 </Link>

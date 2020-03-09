@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useObserver } from "mobx-react-lite";
 import { useStores } from '../../hooks';
 import styles from './AddPost.module.css';
+import { useHistory } from 'react-router-dom'
 
 const FormPost = () => {
     const { dataStore } = useStores();
+    let history = useHistory();
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -19,16 +21,14 @@ const FormPost = () => {
         setDescription('');
         setTags('');
         setImage('');
+        history.push("/")
     }; 
 
-
     const handleLoadImage = target => {
-        // const preview = document.querySelector('img');
         const file = target.files[0];
         const reader = new FileReader();
 
         const handleLoadReader = e => {
-            // preview.src = e.currentTarget.result;
             setImage(e.currentTarget.result)
         }
         
@@ -58,7 +58,6 @@ const FormPost = () => {
                 <label htmlFor="image" className={styles.post__label}><span className={styles.label__text}>Afbeelding</span>
                 <input type="file" onChange={(e) => handleLoadImage(e.currentTarget)} accept=".jpg, .jpeg, .png" required />
                 </label>
-                 {/* <img src="" height="200" alt="preview" /> */}
                 <button className={styles.submit} type="submit">Voeg toe </button>
         </form>
     ));

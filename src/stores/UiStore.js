@@ -1,23 +1,18 @@
 import { decorate, observable, action } from "mobx";
-const VIEWS = { list: "list", detail: "detail" };
 class UiStore {
 
     constructor() {
-        this.currentView = VIEWS.list;
-        this.currentPost = undefined;
+        this.currentUser = undefined;
     }
 
-    setCurrentPost = post => {
-        this.currentPost = post;
-    };
+    setCurrentUser(user) {
+        this.currentUser = user;
+    }
 }
 
 decorate(UiStore, {
-    currentView: observable,
-    setCurrentView: action,
-    currentPost: observable,
-    setCurrentPost: action
+    currentUser: observable,
+    setCurrentUser: action
 });
 
-export { VIEWS };
 export default UiStore;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './PostImage.module.css';
 
 const PostImage = ({ post }) => {
+  console.log(post.picture)
     return (
         <img className={styles.post__img} src={post.picture} alt={post.title} />
     );

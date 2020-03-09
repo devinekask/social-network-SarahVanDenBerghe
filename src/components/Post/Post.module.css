@@ -1,5 +1,5 @@
 @value tokens: "../../style/tokens.module.css";
-@value borderRadius, spacerRegular, spacerSmall from tokens;
+@value borderRadius, spacerRegular from tokens;
 
 .post {
   margin: 0 spacerRegular spacerRegular 0;
@@ -19,6 +19,6 @@
   left: 0;
 }
 
-.post__info {
-  padding: 0 spacerSmall 0;
+.post__text {
+  padding: spacerRegular;
 }

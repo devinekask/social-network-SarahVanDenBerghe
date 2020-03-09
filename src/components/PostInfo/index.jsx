@@ -1,19 +1,17 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import styles from './PostInfo.module.css';
+import Tags from "../Tags/index"
 
 const PostInfo = ({ post }) => {
     return (
         <div className={styles.post__info}>
             <header>
                 <h3 className={styles.post__title}>{post.title}</h3>
-                <p className={styles.post__user}>{post.user}</p>
+                <p className={styles.post__user}>{post.user.name}</p>
             </header>
             <p className={styles.post__description}>{post.description}</p>
-            {post.tags ? 
-            <ul className={styles.post__tags}>
-                {post.tags ? post.tags.map(tag => (<li className={styles.tag} key={tag}>{tag}</li>)) : '' }
-            </ul> : '' }
+            <Tags post={post} />
         </div>
     )
 };

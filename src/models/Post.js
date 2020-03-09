@@ -22,6 +22,11 @@ class Post {
   addComment(user, content) {
     this.comments.push(new Comment(user, content));
   }
+
+  get readableTime () {
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return new Intl.DateTimeFormat('nl-NL', options).format(this.time);
+  }
 }
 
 decorate(Post, {

@@ -138,3 +138,12 @@ button {
   border: none;
   background-color: transparent;
 }
+
+
+* {
+  text-decoration: none;
+}
+
+a {
+  color: black;
+}

@@ -23,7 +23,7 @@ const NavBar = () => {
             }}
           >
             <NavLink className={styles.menu__link} to="/settings">
-              Settings
+              Instellingen
             </NavLink>
           </li>
           <li
@@ -33,7 +33,7 @@ const NavBar = () => {
             }}
           >
             <NavLink className={styles.menu__link} to="/profile">
-              Profile
+              Profiel
             </NavLink>
           </li>
           <div className={styles.menu__linkButton}>
@@ -44,7 +44,7 @@ const NavBar = () => {
               }}
             >
               <NavLink className={styles.menu__link} to="/add">
-                Create post
+                Creëer post
               </NavLink>
             </li>
           </div>

@@ -1,0 +1,14 @@
+@value tokens: "../../style/tokens.module.css";
+@value spacerSmall from tokens;
+
+.back {
+    composes: small from "../../style/typo.module.css";
+    color: white;
+    margin-bottom: spacerSmall;
+    display: inline-flex;
+}
+
+.back:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
