@@ -6,14 +6,20 @@ import styles from './Detail.module.css';
 import Comments from "../Comments/index";
 import BackLink from "../BackLink/index";
 import Tags from "../Tags/index";
+import { useHistory } from 'react-router-dom'
 
 const Detail = () => {
     const { dataStore, uiStore } = useStores();
     const { id } = useParams();
     const post = dataStore.getPostById(id);
-    console.log(post.picture.includes('assets/'))
+    let history = useHistory();
 
-    return useObserver(() => (
+    return useObserver(() => {
+        if (!post) {
+            history.push("/");
+        }
+
+        return (
         <div className={styles.wrapper}>
             <BackLink />
             {post ?
@@ -37,7 +43,8 @@ const Detail = () => {
             </div>
             : '' }
         </div>
-    ));
+        )
+    });
 };
 
 export default Detail;
