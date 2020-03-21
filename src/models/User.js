@@ -1,7 +1,7 @@
 import { v4 } from "uuid";
 
 class User {
-    constructor({ id = v4(), name, store, avatar = "" }) {
+    constructor({ id = v4(), name, avatar = "", store }) {
         this.id = id;
         this.name = name;
         this.posts = [];

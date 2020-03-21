@@ -1,5 +1,5 @@
 @value tokens: "../../style/tokens.module.css";
-@value borderRadius, spacerRegular, spacerSmall, primaryColorLight, secondaryColor, secondaryColorLight from tokens;
+@value borderRadius, smallScreen, spacerRegular, spacerSmall, primaryColorLight, secondaryColor, secondaryColorLight from tokens;
 
 .wrapper {
     display: flex;
@@ -85,4 +85,30 @@
   margin: .25rem;
   border-radius: 5px;
   padding: .25rem .5rem;
+}
+
+@media screen and (max-width: smallScreen) {
+    .detail {
+        grid-template-columns: 1fr;
+        margin-bottom: 2rem;
+    }
+
+    .detail__img {
+        border-radius: borderRadius borderRadius 0 0;
+        min-height: 20rem;
+    }
+
+    .detail__info {
+        padding: spacerSmall;
+        margin-left: 0;
+    }
+
+    .detail__title {
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+
+    .detail__header {
+        margin-bottom: spacerSmall;
+    }
 }

@@ -1,5 +1,16 @@
+@value tokens: "../../style/tokens.module.css";
+@value smallScreen from tokens;
+
 .posts {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+}
+
+@media screen and (max-width: smallScreen) {
+    .posts {
+        justify-content: center;
+        /* margin-top: -3rem; */
+        margin: 2rem auto;
+    }
 }

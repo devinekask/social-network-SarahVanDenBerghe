@@ -1,4 +1,3 @@
-import Post from '../models/Post';
 import {decorate, observable, action, configure} from 'mobx';
 
 configure({enforceActions: 'observed'});
@@ -12,13 +11,9 @@ class DataStore {
   addUser(user) {
     this.users.push(user);
   }
-
-  seed(data) {
-    this.posts.push(...data);
-  }
-
-  addPost(picture, title, user, description, tags) {
-    this.posts.push(new Post({picture, title, user, description, tags}));
+  
+  addPost(post) {
+    this.posts.push(post);
   }
 
   getPostById = id => this.posts.find(post => post.id === id);
@@ -27,7 +22,10 @@ class DataStore {
 decorate(DataStore, {
   posts: observable,
   addPost: action,
-  seed: action
+  seed: action,
+  getPostById: action
 });
 
 export default DataStore;
+
+

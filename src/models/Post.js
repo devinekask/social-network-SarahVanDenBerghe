@@ -1,10 +1,8 @@
-import Comment from '../models/Comment';
 import {decorate, observable, action} from 'mobx';
-import { v4 as uuidv4 } from 'uuid';
 
 class Post {
-  constructor({picture, title, user, description, tags, liked = false, time}) {
-    this.id = uuidv4();
+  constructor({id, picture, title, user, description, tags, liked = false, time, store}) {
+    this.id = id;
     this.picture = picture;
     this.title = title;
     this.user = user;
@@ -13,14 +11,19 @@ class Post {
     this.liked = liked;
     this.time  = time;
     this.comments = [];
+    if (!store) {
+      throw new Error("No store detected");
+    }
+    this.store = store;
+    this.store.addPost(this);
   }
-
+  
   toggleLike(value) {
     this.liked = value;
   }
 
-  addComment(user, content) {
-    this.comments.push(new Comment(user, content));
+  addComment(comment) {
+    this.comments.push(comment);
   }
 
   get readableTime () {

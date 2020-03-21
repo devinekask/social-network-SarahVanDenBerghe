@@ -35,5 +35,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+    "src/(models|stores)/**.js",
+    "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": [
+    "text"
+    ]
   }
 }

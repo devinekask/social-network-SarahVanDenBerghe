@@ -3,7 +3,7 @@ import { useObserver } from "mobx-react-lite";
 import PropTypes from 'prop-types';
 import styles from './CommentAdd.module.css';
 import { useStores } from '../../hooks';
-
+import Comment from "../../models/Comment";
 const CommentAdd = ({ post }) => {
 
     const { uiStore } = useStores();
@@ -12,8 +12,8 @@ const CommentAdd = ({ post }) => {
     const handleFormSubmit = (post, e) => {
         e.preventDefault();
         if (content !== '') {
-          post.addComment({ user: uiStore.currentUser, content });
-            setContent('');
+          new Comment({ user: uiStore.currentUser, content, post });
+          setContent('');
         }
     };
 

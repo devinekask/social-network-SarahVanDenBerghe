@@ -1,5 +1,5 @@
 @value tokens: "../../style/tokens.module.css";
-@value borderRadius, spacerRegular from tokens;
+@value borderRadius, extraSmallScreen, spacerRegular, spacerSmall from tokens;
 
 .post {
   margin: 0 spacerRegular spacerRegular 0;
@@ -21,4 +21,12 @@
 
 .post__text {
   padding: spacerRegular;
+}
+
+
+@media screen and (max-width: extraSmallScreen) {
+    .post {
+        margin: .8rem 0 ;
+        width: 100%;
+    }
 }

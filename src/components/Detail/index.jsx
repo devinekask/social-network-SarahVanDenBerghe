@@ -11,7 +11,9 @@ import { useHistory } from 'react-router-dom'
 const Detail = () => {
     const { dataStore, uiStore } = useStores();
     const { id } = useParams();
+    console.log(dataStore);
     const post = dataStore.getPostById(id);
+    console.log(post)
     let history = useHistory();
 
     return useObserver(() => {
@@ -28,13 +30,13 @@ const Detail = () => {
                 <div className={styles.detail__info}>
                     <div>
                         <div className={styles.detail__header}>
-                                <img src={uiStore.currentUser.avatar} alt="" />
+                                <img src={uiStore.currentUser.avatar} alt="Avatar" />
                             <div>
                                 <p className={styles.detail__author}>{post.user.name}</p>
                                 <p className={styles.detail__date}>{post.readableTime}</p>
                             </div>
                         </div>
-                        <p className={styles.detail__title}>{post.title}</p>
+                        <h2 className={styles.detail__title}>{post.title}</h2>
                         <p className={styles.detail__description}>{post.description}</p>
                         <Tags post={post} />
                     </div>

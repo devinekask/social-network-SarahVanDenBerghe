@@ -1,46 +1,60 @@
 import Post from './Post';
+import DataStore from "../stores/DataStore";
 
-test('Create a new post', () => {
+const getPostData = store => {
   const post = new Post({
-    picture: '../src/assets/img/vegan-salad-bowl.jpg',
-    title: 'Vegan salad bowl',
-    user: 'Sarah Van Den Berghe',
-    description: 'Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen! 😋',
-    tags: ['Vegetarisch', 'Avondeten', 'Gezond']
+    id: store.posts.length,
+    picture: 'assets/vegan-salad-bowl.jpg',
+    title: 'Test',
+    user: 'Sarah',
+    description: 'Description',
+    tags: ['Vegetarisch', 'Avondeten', 'Gezond'],
+    time: new Date(),
+    store
   });
+
+  return post;
+}
+
+test("Create a new post", () => {
+  const store = new DataStore();
+  const post = getPostData(store);
+  expect(post.title).toBeDefined();
   expect(post.picture).toContain('.jpg' || '.jpeg' || '.png' || '.webp');
-  expect(post.title).toBe('Vegan salad bowl');
-  expect(post.user).toBe('Sarah Van Den Berghe');
-  expect(post.description).toBe('Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen! 😋');
-  expect(post.tags.length).toBeGreaterThan(0);
+  expect(post.title).toBe('Test');
+  expect(post.user).toBe('Sarah');
+  expect(post.description).toBe('Description');
+  expect(post.tags).toBeInstanceOf(Array);
+  expect(post.tags.length).toBe(3);
   expect(post.liked).toBeFalsy();
   expect(post.comments.length).toBe(0);
+  expect(post.time).toBeDefined();
+  expect(post.store).toBeDefined();
 });
 
-test('Add a comment to a post', () => {
-  const post = new Post({
-    picture: '../src/assets/img/vegan-salad-bowl.jpg',
-    title: 'Vegan salad bowl',
-    user: 'Sarah Van Den Berghe',
-    description: 'Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen! 😋',
-    tags: ['Vegetarisch', 'Avondeten', 'Gezond']
-  });
-
-  post.addComment('Laura', 'Yummy!');
+test("Comment on post", () => {
+  const store = new DataStore();
+  const post = getPostData(store);
+  post.addComment('Sarah', 'Test');
   expect(post.comments.length).toBe(1);
-  expect(post.comments[0].user).toBe('Laura');
-  expect(post.comments[0].comment).toBe('Yummy!');
 });
 
 test('Like a post', () => {
-  const post = new Post({
-    picture: '../src/assets/img/vegan-salad-bowl.jpg',
-    title: 'Vegan salad bowl',
-    user: 'Sarah Van Den Berghe',
-    description: 'Een heerlijke vegan avondmaal gemaakt! Vol met vitaminen!  😋',
-    tags: ['Vegetarisch', 'Avondeten', 'Gezond']
-  });
+  const store = new DataStore();
+  const post = getPostData(store);
 
-  post.toggleLike(true);
-  expect(post.liked).toBeTruthy();
+   post.toggleLike(true);
+   expect(post.liked).toBeTruthy();
+});
+
+test('Get time', () => {
+  const store = new DataStore();
+  const post = getPostData(store);
+
+  const time = post.readableTime;
+  expect(time).toBeDefined();
+});
+
+test("Can't create a post without a store", () => {
+  expect(() => new Post({ title: 'Test' })).toThrow('No store detected');
 });

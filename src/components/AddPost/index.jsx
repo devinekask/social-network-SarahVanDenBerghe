@@ -3,6 +3,7 @@ import { useObserver } from "mobx-react-lite";
 import { useStores } from '../../hooks';
 import styles from './AddPost.module.css';
 import { useHistory } from 'react-router-dom'
+import Post from '../../models/Post';
 
 const FormPost = () => {
     const { dataStore, uiStore } = useStores();
@@ -11,25 +12,34 @@ const FormPost = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [tags, setTags] = useState('');
-    const [image, setImage] = useState('assets/vegan-salad-bowl.jpg');
+    const [picture, setPicture] = useState('assets/vegan-salad-bowl.jpg');
 
 
     const handleSubmitForm = e => {
         e.preventDefault();
-        dataStore.addPost(image, title, uiStore.currentUser, description, tags);
+        new Post({
+            id: dataStore.posts.length,
+            picture,
+            title,
+            user: uiStore.currentUser,
+            description,
+            tags,
+            time: new Date(),
+            store: dataStore
+        })
         setTitle('');
         setDescription('');
         setTags('');
-        setImage('');
+        setPicture('');
         history.push("/")
     }; 
 
-    const handleLoadImage = target => {
+    const handleLoadPicture = target => {
         const file = target.files[0];
         const reader = new FileReader();
 
         const handleLoadReader = e => {
-            setImage(e.currentTarget.result)
+            setPicture(e.currentTarget.result)
         }
         
         reader.addEventListener('load', handleLoadReader);
@@ -56,7 +66,7 @@ const FormPost = () => {
                     <input id="tags" type="text" className={styles.post__input} onChange={e => handleChangeTags(e)} />
                 </label>
                 <label htmlFor="image" className={styles.post__label}><span className={styles.label__text}>Afbeelding</span>
-                <input type="file" onChange={(e) => handleLoadImage(e.currentTarget)} accept=".jpg, .jpeg, .png" required />
+                <input type="file" onChange={(e) => handleLoadPicture(e.currentTarget)} accept=".jpg, .jpeg, .png" required />
                 </label>
                 <button className={styles.submit} type="submit">Voeg toe </button>
         </form>

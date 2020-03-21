@@ -1,0 +1,23 @@
+@value tokens: "../../style/tokens.module.css";
+@value borderRadius, spacerRegular from tokens;
+
+.wrapper {
+  padding: 2rem;
+  background-color: white;
+  border-radius: borderRadius;
+  display: flex;
+  max-width: 40rem;
+}
+
+.wrapper img {
+    width: 10rem;
+    height: 10rem;
+    margin-right: spacerRegular;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.title {
+  composes: title from "../../style/typo.module.css";
+  margin-bottom: 1rem;
+}

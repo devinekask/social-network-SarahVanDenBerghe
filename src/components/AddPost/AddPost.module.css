@@ -3,7 +3,7 @@
 
 .form {
   composes: form from "../../style/forms.module.css";
-  padding: 3rem;
+  padding: 2rem;
   background-color: white;
   border-radius: borderRadius;
   display: flex;

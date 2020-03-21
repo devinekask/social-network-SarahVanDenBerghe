@@ -7,8 +7,9 @@ import styles from './Home.module.css';
 const Home = () => {
     const { dataStore } = useStores();
 
-    return useObserver(() => (
+    return useObserver(() => ( 
         <ul className={styles.posts}>
+            <h2 className="hidden">Alle posts</h2>
             {dataStore.posts.reverse().map(post => (
                 <Post
                     key={post.id}
