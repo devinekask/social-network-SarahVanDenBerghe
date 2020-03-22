@@ -18,7 +18,7 @@ const FormPost = () => {
     const handleSubmitForm = e => {
         e.preventDefault();
         new Post({
-            id: dataStore.posts.length,
+            id: `${dataStore.posts.length}`,
             picture,
             title,
             user: uiStore.currentUser,
